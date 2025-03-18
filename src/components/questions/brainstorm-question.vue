@@ -1,10 +1,9 @@
 <script setup>
-import { brainstormQuestion, showerQuestion } from '@/data/questions';
+import { firstQuestion, getNextQuestion } from '@/helpers/question-helper';
 import { ref } from 'vue';
-const currentQuestion = ref(brainstormQuestion);
-function onClick(value) {
-	console.log(value);
-	currentQuestion.value = showerQuestion;
+const currentQuestion = ref(firstQuestion);
+function onClick() {
+	currentQuestion.value = getNextQuestion(currentQuestion.value);
 }
 </script>
 <template>
@@ -17,7 +16,7 @@ function onClick(value) {
 			v-bind:key="answer.label"
 			class="btn btn-outline-success mx-2 my-1"
 			type="button"
-			@click="onClick(answer.value)"
+			@click="onClick()"
 		>
 			{{ answer.label }}
 		</button>

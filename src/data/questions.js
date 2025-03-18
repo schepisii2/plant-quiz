@@ -7,19 +7,30 @@ const PlantType = Object.freeze({
 	SnakePlant: 5,
 });
 
+/** Rules for questions:
+ * 1. Each question has a position, question, and answers.
+ * 2. All answer values in a questions will add up to one of each plant type.
+ * 3. Each question with a variant will follow a question where the answers have the same variant options (when ordered by position).
+ * 4. Some questions have a 'transition' attribute, which will display after the parent question is answered and before the next question is shown.
+ * 5. Each question has a unique combination of position and variant.
+ */
+
 export const brainstormQuestion = {
-	id: '1',
+	position: 1,
 	question: 'Where do you go to brainstorm?',
 	answers: [
 		{
+			variant: 'a',
 			label: 'I have the best ideas in the shower.',
 			value: [PlantType.Fern, PlantType.Pothos, PlantType.SpiderPlant],
 		},
 		{
+			variant: 'b',
 			label: 'I need caffiene! Heading to a local coffee shop.',
 			value: [PlantType.ZZPlant],
 		},
 		{
+			variant: 'c',
 			label: 'Time to a quick snack. To the kitchen!',
 			value: [PlantType.Rosemary, PlantType.SnakePlant],
 		},
@@ -27,7 +38,8 @@ export const brainstormQuestion = {
 };
 
 export const showerQuestion = {
-	id: '2a',
+	position: 2,
+	variant: 'a',
 	question: 'Where do you do in the shower?',
 	answers: [
 		{
@@ -50,7 +62,8 @@ export const showerQuestion = {
 };
 
 export const coffeeQuestion = {
-	id: '2b',
+	position: 2,
+	variant: 'b',
 	question: 'What do you get at a coffee shop?',
 	answers: [
 		{
@@ -69,7 +82,8 @@ export const coffeeQuestion = {
 };
 
 export const snackQuestion = {
-	id: '2c',
+	position: 2,
+	variant: 'c',
 	question: 'What snack do you prefer?',
 	answers: [
 		{
@@ -92,7 +106,7 @@ export const snackQuestion = {
 };
 
 export const dayOffQuestion = {
-	id: '3',
+	position: 3,
 	question: 'You have a day off from work/school. What do you do?',
 	answers: [
 		{
@@ -118,7 +132,7 @@ export const dayOffQuestion = {
 };
 
 export const badDayQuestion = {
-	id: '4',
+	position: 4,
 	question: 'Your friend Pilea texts you. They are having a bad day.',
 	answers: [
 		{
@@ -143,7 +157,7 @@ export const badDayQuestion = {
 };
 
 export const doorOpenQuestion = {
-	id: '5',
+	position: 5,
 	question:
 		'Pilea invites you over, and you notice they left their door open. You walk in and close the door behind you.',
 	answers: [
@@ -163,7 +177,7 @@ export const doorOpenQuestion = {
 };
 
 export const mitesQuestion = {
-	id: '6',
+	position: 6,
 	question:
 		'Pilea tells you about her stressful day. She found out that she might have mites. Now, she has to wait to be repotted.',
 	answers: [
@@ -190,7 +204,7 @@ export const mitesQuestion = {
 };
 
 export const eatQuestion = {
-	id: '7',
+	position: 7,
 	question:
 		'Pilea tells you that she forgot to eat today because she has been so worried about scheduling pesticide treatment.',
 	answers: [
@@ -214,7 +228,7 @@ export const eatQuestion = {
 };
 
 export const pestQuestion = {
-	id: '8',
+	position: 8,
 	question:
 		'Pilea tells you about a scary new pest. It got tired of eating garden plants and wants to try houseplants.',
 	answers: [
@@ -240,7 +254,7 @@ export const pestQuestion = {
 };
 
 export const doorQuestion = {
-	id: '9',
+	position: 9,
 	question: 'Pilea goes towards the door.',
 	answers: [
 		{
@@ -263,19 +277,22 @@ export const doorQuestion = {
 };
 
 export const messQuestion = {
-	id: '10',
+	position: 10,
 	question: 'The room is a mess, but it doesn`t look like anyone is there.',
 	answers: [
 		{
+			variant: 'a',
 			label: '"Did you make this mess?"',
 			value: [PlantType.Pothos],
 		},
 		{
+			variant: 'b',
 			label:
 				'Invite Pilea to your place. She shouldn`t spend the night here alone.',
 			value: [PlantType.Fern, PlantType.SnakePlant, PlantType.Rosemary],
 		},
 		{
+			variant: 'c',
 			label: 'Keep eating pizza.',
 			value: [PlantType.ZZPlant, PlantType.SpiderPlant],
 		},
@@ -283,7 +300,8 @@ export const messQuestion = {
 };
 
 export const closetQuestion = {
-	id: '10a',
+	position: 11,
+	variant: 'a',
 	question: 'Pilea says there is a ladybug trapped in the closet.',
 	answers: [
 		{
@@ -303,7 +321,8 @@ export const closetQuestion = {
 };
 
 export const flyingQuestion = {
-	id: '11a',
+	position: 12,
+	variant: 'a',
 	question: 'The ladybug bursts out of the closet. You are flying on its back.',
 	answers: [
 		{
@@ -322,7 +341,8 @@ export const flyingQuestion = {
 };
 
 export const talkQuestion = {
-	id: '12a',
+	position: 13,
+	variant: 'a',
 	question:
 		'You think the ladybug is trying to talk to you, but you don`t understand what it`s saying.',
 	answers: [
@@ -344,7 +364,8 @@ export const talkQuestion = {
 };
 
 export const nightQuestion = {
-	id: '13a',
+	position: 14,
+	variant: 'a',
 	question:
 		'The ladybug drops you off at your house. You crawl down its back. How do you end the night?',
 	answers: [
@@ -366,7 +387,8 @@ export const nightQuestion = {
 };
 
 export const catepillarQuestion = {
-	id: '10b',
+	position: 11,
+	variant: 'b',
 	question: 'On the way home, you see a catepillar. It looks hungry.',
 	answers: [
 		{
@@ -386,7 +408,8 @@ export const catepillarQuestion = {
 };
 
 export const runningQuestion = {
-	id: '11b',
+	position: 12,
+	variant: 'b',
 	question:
 		'The catepillar is running after you. It`s so much faster than you`d think.',
 	answers: [
@@ -403,7 +426,8 @@ export const runningQuestion = {
 };
 
 export const collarQuestion = {
-	id: '12b',
+	position: 13,
+	variant: 'b',
 	question:
 		'Something shiny catches your eye. Does the catepillar have a collar?',
 	answers: [
@@ -425,7 +449,8 @@ export const collarQuestion = {
 };
 
 export const pocketQuestion = {
-	id: '13b',
+	position: 14,
+	variant: 'b',
 	question:
 		'The catepillar sniffs you. It wants what`s in your pocket. What is it?',
 	answers: [
@@ -449,7 +474,8 @@ export const pocketQuestion = {
 };
 
 export const stomachQuestion = {
-	id: '10c',
+	position: 11,
+	variant: 'c',
 	question: 'The pizza gives you a stomachache.',
 	answers: [
 		{
@@ -469,7 +495,8 @@ export const stomachQuestion = {
 };
 
 export const walkQuestion = {
-	id: '11c',
+	position: 12,
+	variant: 'c',
 	question:
 		'Pilea decides to go to sleep, and you walk home. What do you notice?',
 	answers: [
@@ -489,7 +516,8 @@ export const walkQuestion = {
 };
 
 export const drivewayQuestion = {
-	id: '12c',
+	position: 13,
+	variant: 'c',
 	question: 'Your neighbor has a lot of cars in their driveway.',
 	answers: [
 		{
@@ -509,7 +537,8 @@ export const drivewayQuestion = {
 };
 
 export const sleepQuestion = {
-	id: '13c',
+	position: 14,
+	variant: 'c',
 	question:
 		'You feel asleep faster than you expected. What did you dream about?',
 	answers: [
@@ -530,7 +559,7 @@ export const sleepQuestion = {
 };
 
 export const morningQuestion = {
-	id: '14',
+	position: 15,
 	question: 'What`s the first thing you do the next morning?',
 	answers: [
 		{
@@ -550,7 +579,7 @@ export const morningQuestion = {
 };
 
 export const picnicQuestion = {
-	id: '15',
+	position: 16,
 	question:
 		'Fiddle Leaf Fig invites you to a picnic next week. What do you say?',
 	answers: [
@@ -570,7 +599,7 @@ export const picnicQuestion = {
 };
 
 export const pileaQuestion = {
-	id: '16',
+	position: 17,
 	question: 'You haven`t heard from Pilea all day.',
 	answers: [
 		{
@@ -579,7 +608,7 @@ export const pileaQuestion = {
 		},
 		{
 			label: 'You call her to see how they`re feeling.',
-			value: [PlantType.Rosemary, PlantType.Pothos, SnakePlant],
+			value: [PlantType.Rosemary, PlantType.Pothos, PlantType.SnakePlant],
 		},
 		{
 			label:
@@ -590,7 +619,7 @@ export const pileaQuestion = {
 };
 
 export const dinnerQuestion = {
-	id: '17',
+	position: 18,
 	question: 'What do you make for dinner?',
 	answers: [
 		{
@@ -609,7 +638,7 @@ export const dinnerQuestion = {
 };
 
 export const decompressQuestion = {
-	id: '18',
+	position: 19,
 	question: 'How do you decompress after work?',
 	answers: [
 		{
@@ -628,7 +657,7 @@ export const decompressQuestion = {
 };
 
 export const rechargeQuestion = {
-	id: '19',
+	position: 20,
 	question: 'How recharged are you at the end of the day?',
 	answers: [
 		{
