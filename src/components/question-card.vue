@@ -2,26 +2,55 @@
 import { firstQuestion, getNextQuestion } from '../helpers/question-helper';
 import { ref } from 'vue';
 const currentQuestion = ref(firstQuestion);
-function onClick(answer) {
+const selectedAnswer = ref({});
+const showQuestion = ref(true);
+function onClickAnswer(answer) {
+	selectedAnswer.value = answer;
+	if (currentQuestion.value.transition) {
+		showQuestion.value = false;
+	} else {
+		continueQuiz();
+	}
+}
+function continueQuiz() {
+	showQuestion.value = true;
 	currentQuestion.value = getNextQuestion(
 		currentQuestion.value,
-		answer.variant,
+		selectedAnswer.value.variant,
 	);
 }
 </script>
 <template>
-	<div class="my-4 m-2" style="color: seagreen">
-		<h3>{{ currentQuestion.question }}</h3>
+	<div v-if="showQuestion" data-test-id="question-and-answers">
+		<div class="my-4 m-2" style="color: seagreen">
+			<h3 data-test-id="question-text">{{ currentQuestion.question }}</h3>
+		</div>
+		<div class="d-flex flex-column">
+			<button
+				v-for="answer in currentQuestion.answers"
+				v-bind:key="answer.label"
+				class="btn btn-outline-success mx-2 my-1"
+				type="button"
+				:data-test-id="'answer-button-' + answer.id"
+				@click="onClickAnswer(answer)"
+			>
+				{{ answer.label }}
+			</button>
+		</div>
 	</div>
-	<div class="d-flex flex-column">
-		<button
-			v-for="answer in currentQuestion.answers"
-			v-bind:key="answer.label"
-			class="btn btn-outline-success mx-2 my-1"
-			type="button"
-			@click="onClick(answer)"
-		>
-			{{ answer.label }}
-		</button>
+	<div v-else data-test-id="transition-text">
+		<div class="my-4 m-2" style="color: seagreen">
+			<h3 data-test-id="transition-text">{{ currentQuestion.transition }}</h3>
+		</div>
+		<div class="d-flex flex-column">
+			<button
+				class="btn btn-outline-success mx-2 my-1"
+				type="button"
+				data-test-id="continue-button"
+				@click="continueQuiz"
+			>
+				Continue <font-awesome-icon icon="arrow-right" />
+			</button>
+		</div>
 	</div>
 </template>
