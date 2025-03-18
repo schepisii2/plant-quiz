@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import BrainstormQuestion from '../components/questions/brainstorm-question.vue';
+import QuestionCard from '../components/question-card.vue';
 const quizStarted = ref(false);
 </script>
 
@@ -21,5 +21,5 @@ const quizStarted = ref(false);
 			Take the quiz <font-awesome-icon icon="arrow-right" />
 		</button>
 	</div>
-	<div v-else><brainstorm-question /></div>
+	<div v-else><question-card /></div>
 </template>
