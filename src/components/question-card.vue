@@ -1,5 +1,5 @@
 <script setup>
-import { firstQuestion, getNextQuestion } from '@/helpers/question-helper';
+import { firstQuestion, getNextQuestion } from '../helpers/question-helper';
 import { ref } from 'vue';
 const currentQuestion = ref(firstQuestion);
 function onClick() {

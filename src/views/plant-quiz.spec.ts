@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import PlantQuiz from './plant-quiz.vue';
 import { shallowMount } from '@vue/test-utils';
-import BrainstormQuestion from '../components/questions/brainstorm-question.vue';
 
 describe('title page', () => {
 	it('displays title', () => {
@@ -46,6 +45,6 @@ describe('title page', () => {
 
 		await w.get('[data-test-id="start-quiz-button"]').trigger('click');
 
-		expect(w.findComponent(BrainstormQuestion).exists()).toBeTruthy();
+		expect(w.find('[data-test-id="question-card"]').exists()).toBeTruthy();
 	});
 });

@@ -21,5 +21,5 @@ const quizStarted = ref(false);
 			Take the quiz <font-awesome-icon icon="arrow-right" />
 		</button>
 	</div>
-	<div v-else><question-card /></div>
+	<div v-else><question-card data-test-id="question-card" /></div>
 </template>
