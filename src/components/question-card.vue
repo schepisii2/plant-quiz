@@ -38,18 +38,18 @@ function continueQuiz() {
 		</div>
 		<div class="d-flex flex-column">
 			<button
-				v-for="answer in currentQuestion.answers"
+				v-for="(answer, index) in currentQuestion.answers"
 				v-bind:key="answer.label"
 				class="btn btn-outline-success mx-2 my-1"
 				type="button"
-				:data-test-id="'answer-button-' + answer.id"
+				:data-test-id="'answer-button-' + index"
 				@click="onClickAnswer(answer)"
 			>
 				{{ answer.label }}
 			</button>
 		</div>
 	</div>
-	<div v-else data-test-id="transition-text">
+	<div v-else>
 		<div class="my-4 m-2" style="color: seagreen">
 			<h3 data-test-id="transition-text">{{ currentQuestion.transition }}</h3>
 		</div>
