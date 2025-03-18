@@ -31,7 +31,7 @@ import {
 	rechargeQuestion,
 } from '../data/questions';
 
-const allQuestions = [
+export const allQuestions = [
 	brainstormQuestion,
 	showerQuestion,
 	coffeeQuestion,
@@ -66,7 +66,15 @@ const allQuestions = [
 
 export const firstQuestion = brainstormQuestion;
 
-export function getNextQuestion(currentQuestion) {
+export function getNextQuestion(currentQuestion, answerVariant) {
 	const nextPosition = currentQuestion.position + 1;
-	return allQuestions.find((q) => q.position === nextPosition);
+	const possibleQuestions = allQuestions.filter(
+		(q) => q.position === nextPosition,
+	);
+	if (possibleQuestions.length === 1) {
+		return possibleQuestions[0];
+	} else if (currentQuestion.variant) {
+		return possibleQuestions.find((q) => q.variant === currentQuestion.variant);
+	}
+	return possibleQuestions.find((q) => q.variant === answerVariant);
 }

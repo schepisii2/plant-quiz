@@ -1,4 +1,4 @@
-const PlantType = Object.freeze({
+export const PlantType = Object.freeze({
 	SpiderPlant: 0,
 	Rosemary: 1,
 	Fern: 2,
@@ -151,7 +151,7 @@ export const badDayQuestion = {
 		},
 		{
 			label: '(Text) "Oh no! What happened?"',
-			value: [PlantType.SnakePlant],
+			value: [PlantType.Fern, PlantType.ZZPlant],
 		},
 	],
 };

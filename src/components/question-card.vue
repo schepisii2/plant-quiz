@@ -2,8 +2,11 @@
 import { firstQuestion, getNextQuestion } from '../helpers/question-helper';
 import { ref } from 'vue';
 const currentQuestion = ref(firstQuestion);
-function onClick() {
-	currentQuestion.value = getNextQuestion(currentQuestion.value);
+function onClick(answer) {
+	currentQuestion.value = getNextQuestion(
+		currentQuestion.value,
+		answer.variant,
+	);
 }
 </script>
 <template>
@@ -16,7 +19,7 @@ function onClick() {
 			v-bind:key="answer.label"
 			class="btn btn-outline-success mx-2 my-1"
 			type="button"
-			@click="onClick()"
+			@click="onClick(answer)"
 		>
 			{{ answer.label }}
 		</button>
