@@ -46,5 +46,19 @@ describe('title page', () => {
 		await w.get('[data-test-id="start-quiz-button"]').trigger('click');
 
 		expect(w.find('[data-test-id="question-card"]').exists()).toBeTruthy();
+		expect(w.find('[data-test-id="results-card"]').exists()).toBeFalsy();
+	});
+	it('shows results when quiz is done', async () => {
+		const w = shallowMount(PlantQuiz, {
+			global: { stubs: ['FontAwesomeIcon'] },
+		});
+
+		await w.get('[data-test-id="start-quiz-button"]').trigger('click');
+		await (w.getComponent('[data-test-id="question-card"]') as any).vm.$emit(
+			'done',
+		);
+
+		expect(w.find('[data-test-id="question-card"]').exists()).toBeFalsy();
+		expect(w.find('[data-test-id="results-card"]').exists()).toBeTruthy();
 	});
 });

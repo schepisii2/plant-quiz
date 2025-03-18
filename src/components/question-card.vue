@@ -1,17 +1,28 @@
 <script setup>
-import { firstQuestion, getNextQuestion } from '../helpers/question-helper';
-import { ref } from 'vue';
+import {
+	firstQuestion,
+	getNextQuestion,
+	isLastQuestion,
+} from '../helpers/question-helper';
+import { ref, defineEmits } from 'vue';
+
 const currentQuestion = ref(firstQuestion);
 const selectedAnswer = ref({});
 const showQuestion = ref(true);
+
+const emits = defineEmits(['done']);
+
 function onClickAnswer(answer) {
 	selectedAnswer.value = answer;
-	if (currentQuestion.value.transition) {
+	if (isLastQuestion(currentQuestion.value)) {
+		emits('done');
+	} else if (currentQuestion.value.transition) {
 		showQuestion.value = false;
 	} else {
 		continueQuiz();
 	}
 }
+
 function continueQuiz() {
 	showQuestion.value = true;
 	currentQuestion.value = getNextQuestion(

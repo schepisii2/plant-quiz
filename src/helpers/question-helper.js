@@ -66,6 +66,10 @@ export const allQuestions = [
 
 export const firstQuestion = brainstormQuestion;
 
+export function isLastQuestion(currentQuestion) {
+	return currentQuestion.position === 20;
+}
+
 export function getNextQuestion(currentQuestion, answerVariant) {
 	const nextPosition = currentQuestion.position + 1;
 	const possibleQuestions = allQuestions.filter(

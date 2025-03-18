@@ -3,6 +3,7 @@ import {
 	firstQuestion,
 	allQuestions,
 	getNextQuestion,
+	isLastQuestion,
 } from './question-helper';
 import {
 	badDayQuestion,
@@ -11,24 +12,34 @@ import {
 	dayOffQuestion,
 	flyingQuestion,
 	PlantType,
+	rechargeQuestion,
 	talkQuestion,
 } from '../data/questions';
 
 describe('first question', () => {
-	it('should be brainstormQuestion', () => {
+	it('returns brainstormQuestion', () => {
 		expect(firstQuestion).toBe(brainstormQuestion);
 	});
 });
 
+describe('last question', () => {
+	it('returns false when not last question', () => {
+		expect(isLastQuestion(brainstormQuestion)).toBeFalsy();
+	});
+	it('returns true when last question', () => {
+		expect(isLastQuestion(rechargeQuestion)).toBeTruthy();
+	});
+});
+
 describe('all questions', () => {
-	it('should have at least one question per position (1-20)', () => {
+	it('has at least one question per position (1-20)', () => {
 		const positions = allQuestions.map((q) => q.position);
 		const expectedPosition = 1;
 		while (expectedPosition >= 20) {
 			expect(positions).toContain(expectedPosition);
 		}
 	});
-	it('should have each plant type as a possible value in every question', () => {
+	it('has each plant type as a possible value in every question', () => {
 		allQuestions.forEach((q) => {
 			const possibleValues = q.answers.flatMap((a) => a.value);
 			expect(possibleValues.length).toBe(6);
@@ -40,12 +51,12 @@ describe('all questions', () => {
 			expect(possibleValues).toContain(PlantType.SnakePlant);
 		});
 	});
-	it('should have at least two answers for each question', () => {
+	it('has at least two answers for each question', () => {
 		allQuestions.forEach((q) => {
 			expect(q.answers.length).toBeGreaterThanOrEqual(2);
 		});
 	});
-	it('should have a variant to distinguish between questions of the same position', () => {
+	it('has variant attributes on questions with the same position', () => {
 		const positions = allQuestions.map((q) => q.position);
 		positions.forEach((position) => {
 			const questionsWithPosition = allQuestions.filter(

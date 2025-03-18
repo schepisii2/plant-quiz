@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import QuestionCard from '../components/question-card.vue';
 const quizStarted = ref(false);
+const showResults = ref(false);
 </script>
 
 <template>
@@ -21,5 +22,8 @@ const quizStarted = ref(false);
 			Take the quiz <font-awesome-icon icon="arrow-right" />
 		</button>
 	</div>
-	<div v-else><question-card data-test-id="question-card" /></div>
+	<div v-else-if="!showResults">
+		<question-card data-test-id="question-card" @done="showResults = true" />
+	</div>
+	<div v-else data-test-id="results-card">Results!</div>
 </template>
