@@ -1,19 +1,4 @@
-export const PlantType = Object.freeze({
-	SpiderPlant: 0,
-	Rosemary: 1,
-	Fern: 2,
-	Pothos: 3,
-	ZZPlant: 4,
-	SnakePlant: 5,
-});
-
-/** Rules for questions:
- * 1. Each question has a position, question, and answers.
- * 2. All answer values in a questions will add up to one of each plant type.
- * 3. Each question with a variant will follow a question where the answers have the same variant options (when ordered by position).
- * 4. Some questions have a 'transition' attribute, which will display after the parent question is answered and before the next question is shown.
- * 5. Each question has a unique combination of position and variant.
- */
+import { PlantType } from './plant-type-enum';
 
 export const brainstormQuestion = {
 	position: 1,

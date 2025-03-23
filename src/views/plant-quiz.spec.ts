@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import PlantQuiz from './plant-quiz.vue';
 import { shallowMount } from '@vue/test-utils';
-import { PlantType } from '../data/questions';
+import { PlantType } from '../data';
 
 describe('title page', () => {
 	it('displays title', () => {

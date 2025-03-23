@@ -14,7 +14,7 @@ import {
 	PlantType,
 	rechargeQuestion,
 	talkQuestion,
-} from '../data/questions';
+} from '../data';
 
 describe('first question', () => {
 	it('returns brainstormQuestion', () => {

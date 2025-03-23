@@ -29,7 +29,7 @@ import {
 	dinnerQuestion,
 	decompressQuestion,
 	rechargeQuestion,
-} from '../data/questions';
+} from '../data';
 
 export const allQuestions = [
 	brainstormQuestion,

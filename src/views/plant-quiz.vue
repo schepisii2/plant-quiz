@@ -1,8 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import QuestionCard from '../components/question-card.vue';
-import ResultsCard from '@/components/results-card.vue';
-import { PlantType } from '../data/questions';
+import { QuestionCard, ResultsCard } from '../components';
+import { PlantType } from '../data';
 const quizStarted = ref(false);
 const showResults = ref(false);
 
@@ -60,6 +59,7 @@ function updateValues(values) {
 	</div>
 	<results-card
 		v-else
+		data-test-id="results-card"
 		:snake-plant="snakePlant"
 		:zz-plant="zzPlant"
 		:pothos="pothos"
