@@ -12,11 +12,11 @@ export const spiderPlant = {
 	quotes: [
 		{
 			text: 'Spider Plant always makes me feel welcomed!',
-			speaker: PlantType.Fern,
+			speaker: 'Fern',
 		},
 		{
 			text: 'Spider Plant is my favorite person to work with. They make the day pass so fast.',
-			speaker: PlantType.SpiderPlant,
+			speaker: 'Spider Plant',
 		},
 	],
 };
@@ -33,11 +33,11 @@ export const rosemary = {
 	quotes: [
 		{
 			text: 'Anytime I hear about all the things that Rosemary is doing I get tired for them.',
-			speaker: PlantType.ZZPlant,
+			speaker: 'ZZ Plant',
 		},
 		{
 			text: 'Rosemary is always down to try a new restaurant with me.',
-			speaker: PlantType.SpiderPlant,
+			speaker: 'Spider Plant',
 		},
 	],
 };
@@ -54,11 +54,11 @@ export const fern = {
 	quotes: [
 		{
 			text: 'Once Fern had a panic attack after dropping their keys while trying to unlock the door',
-			speaker: PlantType.Pothos,
+			speaker: 'Pothos',
 		},
 		{
 			text: 'Fern is one of my closest friends!',
-			speaker: PlantType.SpiderPlant,
+			speaker: 'Spider Plant',
 		},
 	],
 };
@@ -75,11 +75,11 @@ export const pothos = {
 	quotes: [
 		{
 			text: 'When I can`t figure out what to do, I ask Pothos.',
-			speaker: PlantType.SnakePlant,
+			speaker: 'Snake Plant',
 		},
 		{
 			text: 'Pothos isn`t always great at finding a nice way to say things.',
-			speaker: PlantType.Rosemary,
+			speaker: 'Rosemary',
 		},
 	],
 };
@@ -96,11 +96,11 @@ export const zzPlant = {
 	quotes: [
 		{
 			text: 'ZZ Plant is a great listener! I tell them everything.',
-			speaker: PlantType.SpiderPlant,
+			speaker: 'Spider Plant',
 		},
 		{
 			text: 'I wish I slept as much as ZZ Plant. I`d probably feel so much better.',
-			speaker: PlantType.Pothos,
+			speaker: 'Pothos',
 		},
 	],
 };
@@ -117,11 +117,11 @@ export const snakePlant = {
 	quotes: [
 		{
 			text: 'I love Snake Plant, but I am instantly worried anytime they call me.',
-			speaker: PlantType.Rosemary,
+			speaker: 'Rosemary',
 		},
 		{
 			text: 'Every story Snake Plant tells me sounds like a nightmare',
-			speaker: PlantType.ZZPlant,
+			speaker: 'ZZ Plant',
 		},
 	],
 };
