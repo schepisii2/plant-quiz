@@ -31,3 +31,11 @@ export {
 	decompressQuestion,
 	rechargeQuestion,
 } from './questions.js';
+export {
+	spiderPlant,
+	rosemary,
+	fern,
+	zzPlant,
+	pothos,
+	snakePlant,
+} from './plants.js';

@@ -1,36 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import { QuestionCard, ResultsCard } from '../components';
-import { PlantType } from '../data';
+import QuestionCard from '../components/question-card.vue';
+import ResultsCard from '../components/results-card.vue';
+import { updateValues } from '../helpers/plant-helper';
 const quizStarted = ref(false);
 const showResults = ref(false);
-
-const spiderPlant = ref(0);
-const rosemary = ref(0);
-const fern = ref(0);
-const pothos = ref(0);
-const zzPlant = ref(0);
-const snakePlant = ref(0);
-function updateValues(values) {
-	if (values.includes(PlantType.SpiderPlant)) {
-		spiderPlant.value++;
-	}
-	if (values.includes(PlantType.Rosemary)) {
-		rosemary.value++;
-	}
-	if (values.includes(PlantType.Fern)) {
-		fern.value++;
-	}
-	if (values.includes(PlantType.Pothos)) {
-		pothos.value++;
-	}
-	if (values.includes(PlantType.ZZPlant)) {
-		zzPlant.value++;
-	}
-	if (values.includes(PlantType.SnakePlant)) {
-		snakePlant.value++;
-	}
-}
 </script>
 
 <template>
@@ -57,14 +31,5 @@ function updateValues(values) {
 			@values="updateValues"
 		/>
 	</div>
-	<results-card
-		v-else
-		data-test-id="results-card"
-		:snake-plant="snakePlant"
-		:zz-plant="zzPlant"
-		:pothos="pothos"
-		:fern="fern"
-		:rosemary="rosemary"
-		:spiderPlant="spiderPlant"
-	/>
+	<results-card v-else data-test-id="results-card" />
 </template>
