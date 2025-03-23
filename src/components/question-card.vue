@@ -10,10 +10,11 @@ const currentQuestion = ref(firstQuestion);
 const selectedAnswer = ref({});
 const showQuestion = ref(true);
 
-const emits = defineEmits(['done']);
+const emits = defineEmits(['done', 'values']);
 
 function onClickAnswer(answer) {
 	selectedAnswer.value = answer;
+	emits('values', answer.value);
 	if (isLastQuestion(currentQuestion.value)) {
 		emits('done');
 	} else if (currentQuestion.value.transition) {

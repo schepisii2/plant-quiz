@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import PlantQuiz from './plant-quiz.vue';
 import { shallowMount } from '@vue/test-utils';
+import { PlantType } from '../data/questions';
 
 describe('title page', () => {
 	it('displays title', () => {
@@ -60,5 +61,23 @@ describe('title page', () => {
 
 		expect(w.find('[data-test-id="question-card"]').exists()).toBeFalsy();
 		expect(w.find('[data-test-id="results-card"]').exists()).toBeTruthy();
+	});
+	it('updates plant values', async () => {
+		const w = shallowMount(PlantQuiz, {
+			global: { stubs: ['FontAwesomeIcon'] },
+		});
+
+		await w.get('[data-test-id="start-quiz-button"]').trigger('click');
+		await (w.getComponent('[data-test-id="question-card"]') as any).vm.$emit(
+			'values',
+			[PlantType.ZZPlant, PlantType.SnakePlant, PlantType.Rosemary],
+		);
+
+		expect((w.vm as any).snakePlant).toBe(1);
+		expect((w.vm as any).zzPlant).toBe(1);
+		expect((w.vm as any).pothos).toBe(0);
+		expect((w.vm as any).fern).toBe(0);
+		expect((w.vm as any).rosemary).toBe(1);
+		expect((w.vm as any).spiderPlant).toBe(0);
 	});
 });
