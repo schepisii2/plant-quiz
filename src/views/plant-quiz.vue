@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import QuestionCard from '../components/question-card.vue';
-import ResultsCard from '../components/results-card.vue';
+import ResultsCard from '../components/results-card/results-card.vue';
 import { updateValues } from '../helpers/plant-helper';
 const quizStarted = ref(false);
 const showResults = ref(false);
