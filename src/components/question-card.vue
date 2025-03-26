@@ -4,13 +4,17 @@ import {
 	getNextQuestion,
 	isLastQuestion,
 } from '../helpers/question-helper';
-import { ref, defineEmits } from 'vue';
+import { ref, defineEmits, computed } from 'vue';
 
 const currentQuestion = ref(firstQuestion);
 const selectedAnswer = ref({});
 const showQuestion = ref(true);
 
 const emits = defineEmits(['done', 'values']);
+
+const progressBarStyle = computed(() => {
+	return `width: ${(currentQuestion.value.position / 21) * 100}% `;
+});
 
 function onClickAnswer(answer) {
 	selectedAnswer.value = answer;
@@ -33,6 +37,16 @@ function continueQuiz() {
 }
 </script>
 <template>
+	<div class="progress">
+		<div
+			class="progress-bar progress-bar-striped bg-success"
+			role="progressbar"
+			:style="progressBarStyle"
+			aria-valuenow="100"
+			aria-valuemin="0"
+			aria-valuemax="100"
+		></div>
+	</div>
 	<div v-if="showQuestion" data-test-id="question-and-answers">
 		<div class="my-4 m-2" style="color: seagreen">
 			<h3 data-test-id="question-text">{{ currentQuestion.question }}</h3>
