@@ -1,29 +1,16 @@
 # plant-quiz
 
-## Project setup
+### NPM
 
 ```
-npm install
+npm install -- project setup
+npm run serve -- compiles & hot-reloads for development
+npm run build -- compiles & minifies for production
+npm run lint -- lints & file fixes
+npm run test -- runs unit tests through vitest
 ```
 
-### Compiles and hot-reloads for development
+### Resources
 
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Inspired by @sophie006liu [Vegetal](https://github.com/sophie006liu/vegetal)
+See [Deploying Your Vue Project to GitHub Pages](https://medium.com/@zulmianah/deploying-your-vue-project-to-github-pages-3bfea89043f6).
