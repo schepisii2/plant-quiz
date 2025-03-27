@@ -3,7 +3,6 @@ import { PlantType } from './plant-type-enum';
 export const spiderPlant = {
 	type: PlantType.SpiderPlant,
 	label: 'Spider Plant',
-	img: 'spider-plant.jpg',
 	attributes: [
 		'Certified Yapper',
 		'Knows all the trends',
@@ -25,7 +24,6 @@ export const spiderPlant = {
 export const rosemary = {
 	type: PlantType.Rosemary,
 	label: 'Rosemary',
-	img: 'rosemary.jpg',
 	attributes: [
 		'Has 100+ hobbies',
 		'Mom friend',
@@ -47,7 +45,6 @@ export const rosemary = {
 export const fern = {
 	type: PlantType.Fern,
 	label: 'Fern',
-	img: 'fern.jpg',
 	attributes: [
 		'Always hydrated',
 		'Really good at communicating their feelings',
@@ -69,7 +66,6 @@ export const fern = {
 export const pothos = {
 	type: PlantType.Pothos,
 	label: 'Pothos',
-	img: 'pothos.jpg',
 	attributes: [
 		'Decisive',
 		'Gives great advice',
@@ -91,7 +87,6 @@ export const pothos = {
 export const zzPlant = {
 	type: PlantType.ZZPlant,
 	label: 'ZZ Plant',
-	img: 'zz-plant.jpg',
 	attributes: [
 		'Likes going outside as a concept',
 		'Goes with the flow',
@@ -113,7 +108,6 @@ export const zzPlant = {
 export const snakePlant = {
 	type: PlantType.SnakePlant,
 	label: 'Snake Plant',
-	img: 'snake-plant.jpg',
 	attributes: [
 		'Would do anything to protect their friends',
 		'Determined, nothing can stop them once they set their mind to it',

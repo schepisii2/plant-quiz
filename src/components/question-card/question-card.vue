@@ -3,7 +3,8 @@ import {
 	firstQuestion,
 	getNextQuestion,
 	isLastQuestion,
-} from '../helpers/question-helper';
+} from '../../helpers/question-helper';
+import QuestionImage from './question-image.vue';
 import { ref, defineEmits, computed } from 'vue';
 
 const currentQuestion = ref(firstQuestion);
@@ -49,6 +50,7 @@ function continueQuiz() {
 	</div>
 	<div v-if="showQuestion" data-test-id="question-and-answers">
 		<div class="my-4 m-2" style="color: seagreen">
+			<question-image :question="currentQuestion" />
 			<h3 data-test-id="question-text">{{ currentQuestion.question }}</h3>
 		</div>
 		<div class="d-flex flex-column">
