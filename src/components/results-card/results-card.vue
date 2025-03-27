@@ -7,7 +7,7 @@ import ResultsScorecard from './results-scorecard.vue';
 onMounted(() => getUserPlant());
 </script>
 <template>
-	<div class="mx-4" style="color: seagreen">
+	<div class="mx-4">
 		<plant-card :plant="userPlant" />
 		<hr />
 		<results-scorecard />

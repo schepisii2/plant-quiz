@@ -50,7 +50,7 @@ function continueQuiz() {
 		></div>
 	</div>
 	<div v-if="showQuestion" data-test-id="question-and-answers">
-		<div class="my-4 m-2" style="color: seagreen">
+		<div class="my-4 m-2">
 			<question-image :question="currentQuestion" />
 			<h3 data-test-id="question-text">{{ currentQuestion.question }}</h3>
 		</div>
@@ -68,7 +68,7 @@ function continueQuiz() {
 		</div>
 	</div>
 	<div v-else>
-		<div class="my-4 m-2" style="color: seagreen">
+		<div class="my-4 m-2">
 			<transition-image :question="currentQuestion" />
 			<h3 data-test-id="transition-text">{{ currentQuestion.transition }}</h3>
 		</div>
