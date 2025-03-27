@@ -5,6 +5,7 @@ import {
 	isLastQuestion,
 } from '../../helpers/question-helper';
 import QuestionImage from './question-image.vue';
+import TransitionImage from './transition-image.vue';
 import { ref, defineEmits, computed } from 'vue';
 
 const currentQuestion = ref(firstQuestion);
@@ -68,6 +69,7 @@ function continueQuiz() {
 	</div>
 	<div v-else>
 		<div class="my-4 m-2" style="color: seagreen">
+			<transition-image :question="currentQuestion" />
 			<h3 data-test-id="transition-text">{{ currentQuestion.transition }}</h3>
 		</div>
 		<div class="d-flex flex-column">
