@@ -16,7 +16,7 @@ export const spiderPlant = {
 		},
 		{
 			text: 'Spider Plant is my favorite person to work with. They make the day pass so fast.',
-			speaker: 'Spider Plant',
+			speaker: 'Snake Plant',
 		},
 	],
 };
