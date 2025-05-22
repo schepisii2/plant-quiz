@@ -3,7 +3,7 @@ import { getPlantPercentage } from '../../helpers/plant-helper';
 import { PlantType } from '../../data';
 </script>
 <template>
-	<h3 class="my-2" data-test-id="results-scorecard">Results</h3>
+	<h3 class="my-2">Results</h3>
 	<div data-test-id="snake-plant-percentage">
 		Snake Plant: {{ getPlantPercentage(PlantType.SnakePlant).toFixed(1) }}%
 	</div>
